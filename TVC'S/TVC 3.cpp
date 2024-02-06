@@ -35,13 +35,38 @@ int main(){
 
 // Resposta:
 
+// Linhas: 13,14,15,16,17,2,3,4,5,7,8,4,5,7,9,10,4,5,6,4,5,6,4,18,19,18,19,18,20
+// Váriaveis: i (main): 3/1/-1 | tam: 4 | i (função): 0/1/2/3/4
 
+// a) 9 3 6 2
+
+// b) 9 0 13 5
 
 // Questão 2: A espionagem digital e o uso de criptografia em conflitos e guerras entre povos e nações não é algo novo e já existe em conflitos desde a 2a Guerra Mundial. Considerando uma adaptação da famosa cifra de César para codificação de mensagens, implemente uma função que receba como parâmetros um vetor de caracteres (string) e um inteiro k. Cada caractere, exceto espaços em branco, deve ser substituído pelo caractere atual somado a (k + 2) e, em seguida, a função deve imprimir a mensagem codificada. Elabore também um programa principal (main) que leia uma mensagem de até 100 caracteres e um valor k e chame a função acima para imprimir a mensagem codificada.
 
 // Resposta:
 
+#include <iostream>
 
+using namespace std;
+
+void funcao(char str[], int k){
+    for(int i = 0; str[i] != '\0'; i++){
+        if(str[i] != ''){
+            str[i] = str[i] + k + 2;
+        }
+    }
+    cout << str;
+}
+
+int main(){
+    char str[101];
+    int k;
+    cin.getline(str,101);
+    cin >> k;
+    funcao(str,k);
+    return 0;   
+}
 
 // Questão 3: Rebeca é uma aluna do curso de Ciência da Computação que precisa fazer um trabalho e pediu sua ajuda. Para isso você vai ter que:
 
@@ -50,3 +75,40 @@ int main(){
 // b) Faça um programa principal que declare quatro vetores do tipo inteiro de tamanho 5. Faça a leitura de valores para dois desses vetores. Chame a função da letra a) passando os quatro vetores declarados como parâmetros. No final, imprimir, conforme o exemplo, os vetores que foram preenchidos pela função.
 
 // Resposta:
+
+// a)
+
+void funcao(int v1[], int v2[], int v3[], int v4[], int t){
+    int p;
+    cin >> p;
+    for(int i = 0; i < t; i++){
+        if(i < p){
+            v3[i] = v1[i];
+            v4[i] = v2[i];
+        } else {
+            v3[i] = v2[i];
+            v4[i] = v1[i];
+        }
+    }
+}
+
+// b)
+
+int main(){
+    int v1[5], v2[5], v3[5], v4[5];
+    for(int i = 0; i < 5; i++){
+        cin >> v1[i];
+    }
+    for(int i = 0; i < 5; i++){
+        cin >> v2[i];
+    }
+    funcao(v1, v2, v3, v4, 5);
+    for(int i = 0; i < 5; i++){
+        cout << v3[i] << "";
+    }
+    cout << endl;
+    for(int i = 0; i < 5; i++){
+        cout << v4[i] << "";
+    }
+    return 0;
+}

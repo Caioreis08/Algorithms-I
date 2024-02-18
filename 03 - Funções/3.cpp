@@ -1,6 +1,5 @@
 // Escreva uma função para receber as três notas de um aluno e imprimir a média ponderada. Considere como peso das notas os seguintes valores: 2, 3, 5.
 
-#include <iomanip>
 #include <iostream>
 
 using namespace std;
